@@ -1,0 +1,143 @@
+    body{
+        margin: 0;
+        padding: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        height: 100%;
+        background-color: #F0F2EF;
+    }
+
+    ::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .container{
+        text-align: center; 
+        margin-top:100px;
+        
+    }
+    img{
+        height: 50px;
+        width: 80px;
+    }
+    ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        background-color: #2D2D34;
+    }
+    
+    li {
+    float: left;
+    height: 50px;
+    }
+
+    li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-weight: bold;
+    height: 50px;
+    margin-left: 30px;
+    }
+    
+    /* Change the link color to #111 (black) on hover */
+    li a:hover {
+    background-color: #555555;
+    }
+
+    table {
+        width:max-content;
+        height: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 20px;
+        font-size: 18px;
+        border-collapse: collapse;
+    }
+    
+    td,th {
+    padding: 16px 24px;
+    text-align: left;
+    }
+    
+    thead tr {
+    background-color: #2D2D34;
+    color: #fff;
+    border: 1px black solid;
+    }
+    
+    
+    thead th {
+    width: 25%;
+    border: 1px black solid;
+    }
+    tbody td{
+        color: white;
+        border: 1px black solid;
+    }
+    tbody tr {
+    background-color: #4F6272;
+    border: 1px black solid;
+    }
+    
+  
+
+    .acceuil{
+        background-image: url("../images/pexels-sascha-hormel-970763.jpg");
+        background-size: cover;
+        background-position: center center; /* centrer l'image horizontalement et verticalement */
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        z-index: -1;
+    }
+
+    .input {
+        display: flex;
+        position: relative;
+        margin: 10px;
+    }
+    
+    .input input {
+        padding: .3em 0;
+        margin-top: .8em;
+        width: 20%;
+        outline: none;
+        margin-left: auto;
+        margin-right: auto;
+        border: none;
+        border-bottom: 2px solid black;
+        background: transparent;
+    }
+    
+    .input input:focus {
+        border-bottom: 2px solid #AD343E;
+    }
+
+    input[name="voirTout"]{
+        margin-top: 10px;
+    }
+
+    input[type="submit"]{
+        background-color: #233D4D; /* Green */
+        border: none;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    input[type="submit"]:hover{
+        box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+    }
+    
