@@ -9,61 +9,51 @@
             name="name"
             placeholder=" Nom objet"/>
         </div>
-    <input type = "submit" value="Rechercher"/>
+    <input type = "submit" value="Rechercher" name="Rechercher"/>
 </form>
 <form method = "POST">
     <input name="voirTout" type = "submit" value="Voir tout les objets"/>
 </form>
 <?php
-    
-    if(isset($_POST['name'])){
+            
+    if(isset($_POST['Rechercher'])){
         echo "<table>
                 <thead>
                     <tr>
                         <th>Nom</th>
                         <th>Date</th>
-                        <th>Date restitution</th>
                         <th>Gare</th>
                     </tr>
                 </thead>";
-        foreach($lesObjets->{'records'} as $unObjet){
-            //on vérifie si le mot recherche est dans un mot retourné par l'api et s'il n'a pas encore été retrouvé
-            //on met la 1er lettre du mot chercher en maj 
-            if(strpos($unObjet->{'fields'}->{'gc_obo_nature_c'},ucfirst(strtolower($_POST['name']))) !== false && isset($unObjet->{'fields'}->{'gc_obo_date_heure_restitution_c'})){
-                $detail = $unObjet->{'fields'};
-                echo "<tbody>
-                        <tr>   
-                            <td>".$detail->{'gc_obo_nature_c'}."</td>";  
-                echo        "<td>".substr($detail->{'date'},0,10)."</td>";
-                echo        "<td>".substr($detail->{'gc_obo_date_heure_restitution_c'},0,10)."</td>";
-                echo        "<td>".$detail->{'gc_obo_gare_origine_r_name'}."</td></tr>
-                    </tbody>";        
-            }
-        }
+                foreach ($resultat as $ligne){
+                        echo "<tr>";
+                        foreach ($ligne as $valeur){
+                            echo "<td>".$valeur."</td>";
+                        }
+                        echo "</tr>";
+                }
+                echo "</table>";
     }
-
+                    
+            
+    
     if(isset($_POST['voirTout'])){
         echo "<table>
         <thead>
             <tr>
                 <th>Nom</th>
                 <th>Date</th>
-                <th>Date restitution</th>
                 <th>Gare</th>
             </tr>
         </thead>";
-        foreach($lesObjets->{'records'} as $unObjet){
-            if(isset($unObjet->{'fields'}->{'gc_obo_date_heure_restitution_c'})){
-                $detail = $unObjet->{'fields'};
-                echo "<tbody>
-                        <tr>   
-                            <td>".$detail->{'gc_obo_nature_c'}."</td>";  
-                echo        "<td>".substr($detail->{'date'},0,10)."</td>";
-                echo        "<td>".substr($detail->{'gc_obo_date_heure_restitution_c'},0,10)."</td>";
-                echo        "<td>".$detail->{'gc_obo_gare_origine_r_name'}."</td></tr>
-                    </tbody>";        
-            }
+        foreach ($resultatTout as $ligne){
+                echo "<tr>";
+                foreach ($ligne as $valeur){
+                    echo "<td>".$valeur."</td>";
+                }
+                echo "</tr>";
         }
+        echo "</table>";
     }
 ?>
 </div>
